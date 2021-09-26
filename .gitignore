@@ -38,3 +38,4 @@ docs/_templates/footer.html
 gitlab-ci-volume/
 .DS_Store
 data/
+.env

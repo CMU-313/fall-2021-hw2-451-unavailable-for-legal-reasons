@@ -117,6 +117,7 @@ INSTALLED_APPS = (
     'mayan.apps.document_signatures',
     'mayan.apps.document_states',
     'mayan.apps.documents',
+    'mayan.apps.reviewers',
     'mayan.apps.duplicates',
     'mayan.apps.file_metadata',
     'mayan.apps.linking',
