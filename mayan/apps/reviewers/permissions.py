@@ -18,7 +18,7 @@ permission_reviewer_delete = namespace.add_permission(
 permission_reviewer_edit = namespace.add_permission(
     label=_('Edit reviewers'), name='reviewer_edit'
 )
-permission_reviewer_remove_document = namespace.add_permission(
+permission_reviewer_remove_candidate = namespace.add_permission(
     label=_('Remove candidates from reviewers'), name='reviewer_remove_candidates'
 )
 permission_reviewer_view = namespace.add_permission(
