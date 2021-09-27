@@ -2,6 +2,8 @@ from django.db import models
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
 from mptt.models import MPTTModel
 
+from mayan.apps.documents.models.document_file_models import DocumentFile
+
 class Dashboard(ExtraDataModelMixin, MPTTModel):
     pass
 
@@ -56,3 +58,36 @@ class ModelCandidate:
         
         # dictionary mapping reviewer name to notes
         self.reviewer_notes = dict()
+
+class ModelCandidate_django(models.Model): 
+    pass
+
+class ModelReviewer_django(models.Model): 
+        name = models.CharField(max_length = 50)
+        POSITIONS = (
+            ('JN', 'Junior'),
+            ('SN', 'Senior'),
+        )
+        position = models.CharField(max_length=2, choice=POSITIONS)
+        EMPLOYMENT_TIME = (
+            ('PT', 'Part time'),
+            ('FT', 'Full time'),
+        )
+        employment_time = models.CharField(max_length=2, choice=EMPLOYMENT_TIME)
+        assigned_candidates = models.ManyToManyField(ModelCandidate_django)
+
+class ModelCandidate_django(models.Model): 
+    name = models.CharField(max_length = 50)
+    email = models.CharField(max_length = 50)
+    phone_number = models.CharField(max_length = 50)
+    DOB = models.CharField(max_length = 50)
+    
+    assigned_candidates = models.ManyToManyField(ModelReviewer_django)
+    associated_docs = models.ManyToManyField(DocumentFile)
+    skills = models.CharField(max_length = 150)
+    experience = models.CharField(max_length = 1000)
+    
+    undergrad_experience = models.CharField(max_length=1000, blank=True)
+    undergrad_school = models.CharField(max_length=50, blank=True)
+    GPA = models.CharField(max_length=5, blank=True)
+    reviewer_notes =  models.CharField(max_length=10000, blank=True)
