@@ -1,1 +1,1 @@
-default_app_config = 'mayan.apps.reviewers.apps.ReviewersConfig'
+default_app_config = 'mayan.apps.reviewers.apps.ReviewersApp'

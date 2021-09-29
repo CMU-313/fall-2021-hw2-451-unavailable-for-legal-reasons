@@ -68,12 +68,12 @@ class ModelReviewer_django(models.Model):
             ('JN', 'Junior'),
             ('SN', 'Senior'),
         )
-        position = models.CharField(max_length=2, choice=POSITIONS)
+        position = models.CharField(max_length=2, choices=POSITIONS)
         EMPLOYMENT_TIME = (
             ('PT', 'Part time'),
             ('FT', 'Full time'),
         )
-        employment_time = models.CharField(max_length=2, choice=EMPLOYMENT_TIME)
+        employment_time = models.CharField(max_length=2, choices=EMPLOYMENT_TIME)
         assigned_candidates = models.ManyToManyField(ModelCandidate_django)
 
 class ModelCandidate_django(models.Model): 
