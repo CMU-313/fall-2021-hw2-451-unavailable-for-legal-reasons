@@ -1,9 +1,6 @@
 
 from django.db import models
 
-# from mayan.apps.documents.models.document_file_models import DocumentFile
-# from mayan.apps.reviewers.models import ModelReviewer_django
-
 class ModelCandidate: 
     def __init__(self, **candidate_input): 
         try:
@@ -39,8 +36,8 @@ class ModelCandidate_django(models.Model):
     phone_number = models.CharField(max_length = 50)
     DOB = models.CharField(max_length = 50)
     
-    assigned_candidates = models.ManyToManyField('apps.reviewers.ModelReviewer_django')
-    associated_docs = models.ManyToManyField('apps.documents.DocumentFile')
+    assigned_candidates = models.ManyToManyField('reviewers.ModelReviewer_django')
+    associated_docs = models.ManyToManyField('documents.DocumentFile')
     skills = models.CharField(max_length = 150)
     experience = models.CharField(max_length = 1000)
     
