@@ -1,0 +1,60 @@
+{% extends 'appearance/base.html' %} 
+{% load i18n %}
+
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Dashboard </h1>
+
+  
+  <div id="table" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>Candidate Name</th>
+        <th>Skills</th>
+        <th>Assigned Reviewers</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td contenteditable="true">Aha!</td>
+        <td contenteditable="true">Python</td>
+        <td contenteditable="true">XXXX</td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+        <td>
+          <span class="table-up glyphicon glyphicon-arrow-up"></span>
+          <span class="table-down glyphicon glyphicon-arrow-down"></span>
+        </td>
+      </tr>
+      <!-- clonable table line -->
+      <tr class="hide">
+        <td contenteditable="true">undefined</td>
+        <td contenteditable="true">undefined</td>
+        <td contenteditable="true">undefined</td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+        <td>
+          <span class="table-up glyphicon glyphicon-arrow-up"></span>
+          <span class="table-down glyphicon glyphicon-arrow-down"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <button id="export-btn" class="btn btn-primary">Export Data</button>
+  <p id="export"></p>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script src="{% static 'custom.js' %}"></script> 
+{% endblock %}

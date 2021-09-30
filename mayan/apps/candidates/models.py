@@ -1,7 +1,7 @@
 
 from django.db import models
 
-class ModelCandidate: 
+class Candidate: 
     def __init__(self, **candidate_input): 
         try:
             self.basic_information = candidate_input["basic_information"]
