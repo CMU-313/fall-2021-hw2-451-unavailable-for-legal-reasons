@@ -33,11 +33,14 @@ class Candidate:
 # reference doc: https://docs.djangoproject.com/en/3.2/ref/models/instances/ 
 class ModelCandidateManager_django(models.Manager): 
     def create_candidate(self, **candidate_input): 
-        basic_information = candidate_input["basic_information"]
-        name = self.basic_information["name"]
-        email = self.basic_information["email"]
-        phone_number = self.basic_information["phone_number"]
-        DOB = self.basic_information.get("DOB", "")
+        try:
+            basic_information = candidate_input["basic_information"]
+            name = basic_information["name"]
+            email = basic_information["email"]
+            phone_number = basic_information["phone_number"]
+            DOB = basic_information.get("DOB", "")
+        except:
+            raise Exception("Candidate name and contact information are required.")
         
         assigned_reviewers = candidate_input.get("assigned_reviewers", [])
         # dictionary mapping title of document to document
@@ -49,8 +52,8 @@ class ModelCandidateManager_django(models.Manager):
 
         try: 
             undergrad_experience = candidate_input["undergraduate_experience"]
-            undergrad_school = self.undergrad_experience.get("undergrad_school", "")
-            GPA = self.undergrad_experience.get("GPA", None)
+            undergrad_school = undergrad_experience.get("undergrad_school", "")
+            GPA = undergrad_experience.get("GPA", None)
         except: 
             pass
         
