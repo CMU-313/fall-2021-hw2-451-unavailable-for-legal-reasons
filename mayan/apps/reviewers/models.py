@@ -18,15 +18,21 @@ class Reviewers(ExtraDataModelMixin, MPTTModel):
     dashboard = models.ForeignKey(Dashboard,on_delete=models.CASCADE)
 # Create your models here.
 
-class ModelReviewer: 
-    def __init__(self, **reviewer_input): 
-        try:
-            self.name = reviewer_input["name"] 
-        except: 
-            raise Exception("Reviewer name is required.")
-        self.position = reviewer_input.get("position", "graduate_student")
-        self.employment_time = reviewer_input.get("employment_time", "undecided")
-        self.assigned_candidates = reviewer_input.get("assigned_candidates", [])
+class ModelCandidate_django(models.Model): 
+    name = models.CharField(max_length = 50)
+    email = models.CharField(max_length = 50)
+    phone_number = models.CharField(max_length = 50)
+    DOB = models.CharField(max_length = 50)
+
+    # assigned_candidates = models.ManyToManyField(ModelReviewer_django) Only one of the model candidates/reviewers needs this, but putting it here implicitly.
+    associated_docs = models.ManyToManyField(DocumentFile)
+    skills = models.CharField(max_length = 150)
+    experience = models.CharField(max_length = 1000)
+
+    undergrad_experience = models.CharField(max_length=1000, blank=True)
+    undergrad_school = models.CharField(max_length=50, blank=True)
+    GPA = models.CharField(max_length=5, blank=True)
+    reviewer_notes =  models.CharField(max_length=10000, blank=True)
 
 class ModelReviewer_django(models.Model): 
         name = models.CharField(max_length = 50)
