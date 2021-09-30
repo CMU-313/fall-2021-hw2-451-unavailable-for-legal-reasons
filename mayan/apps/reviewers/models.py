@@ -1,6 +1,7 @@
 from django.db import models
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
 from mptt.models import MPTTModel
+from mayan.apps.documents.models.document_file_models import DocumentFile
 
 class Dashboard(ExtraDataModelMixin, MPTTModel):
     pass
