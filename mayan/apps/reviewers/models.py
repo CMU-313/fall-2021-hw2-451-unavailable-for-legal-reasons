@@ -31,7 +31,7 @@ class Reviewer():
 class ModelReviewerManager_django(models.Manager): 
     def create_reviewer(self, **reviewer_input): 
         try: 
-            name = reviewer_imput["name"]
+            name = reviewer_input["name"]
         except:
             raise Exception("Reviewer name is required.")
         position = reviewer_input.get("position", "graduate_student")

@@ -21,7 +21,7 @@ class Candidate:
         self.experience = candidate_input.get("experience", dict())
 
         try: 
-            self.undergrad_experience = candidate_input["undergraduate_experience"]
+            self.undergrad_experience = candidate_input["undergrad_experience"]
             self.undergrad_school = self.undergrad_experience.get("undergrad_school", "")
             self.GPA = self.undergrad_experience.get("GPA", None)
         except: 
@@ -51,7 +51,7 @@ class ModelCandidateManager_django(models.Manager):
         experience = candidate_input.get("experience", dict())
 
         try: 
-            undergrad_experience = candidate_input["undergraduate_experience"]
+            undergrad_experience = candidate_input["undergrad_experience"]
             undergrad_school = undergrad_experience.get("undergrad_school", "")
             GPA = undergrad_experience.get("GPA", None)
         except: 
@@ -61,14 +61,24 @@ class ModelCandidateManager_django(models.Manager):
         reviewer_notes = dict()
         
         candidate = self.create(name=name, email=email, phone_number=phone_number, 
-                                DOB=DOB, assigned_reviewers=assigned_reviewers, 
-                                associated_docs=associated_docs, skills=skills, 
-                                experience=experience, undergrad_experience=undergrad_experience,
-                                undergrad_school=undergrad_school, GPA=GPA, 
+                                DOB=DOB, 
+                                # assigned_reviewers=assigned_reviewers, 
+                                # associated_docs=associated_docs, skills=skills, 
+                                experience=experience, 
+                                # undergrad_experience=undergrad_experience,
+                                # undergrad_school=undergrad_school, GPA=GPA, 
                                 reviewer_notes=reviewer_notes)
         return candidate
         
 class ModelCandidate_django(models.Model): 
+
+    @classmethod
+    def create(cls, heh):
+        huh = cls(name=heh)
+        # do something with the book
+        return huh
+
+    undergrad_experience = models.CharField(max_length=1000, blank=True)
     name = models.CharField(max_length = 50)
     email = models.CharField(max_length = 50)
     phone_number = models.CharField(max_length = 50)
@@ -79,7 +89,6 @@ class ModelCandidate_django(models.Model):
     skills = models.CharField(max_length = 150)
     experience = models.CharField(max_length = 1000)
     
-    undergrad_experience = models.CharField(max_length=1000, blank=True)
     undergrad_school = models.CharField(max_length=50, blank=True)
     GPA = models.CharField(max_length=5, blank=True)
     reviewer_notes =  models.CharField(max_length=10000, blank=True)
