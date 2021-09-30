@@ -11,19 +11,15 @@ class Reviewers(ExtraDataModelMixin, MPTTModel):
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     DOB = models.DateField()
+    position = models.CharField(max_length=50)
+    employment_time = models.CharField(max_length=50)
+    assigned_candidates = models.CharField(max_length=50)
     dashboard = models.ForeignKey(Dashboard,on_delete=models.CASCADE)
+
+
 
 # Create your models here.
 
-class ModelReviewer: 
-    def __init__(self, **reviewer_input): 
-        try:
-            self.name = reviewer_input["name"]
-        except:
-            raise Exception("Reviewer name is required.")
-        self.position = reviewer_input.get("position", "graduate_student")
-        self.employment_time = reviewer_input.get("employment_time", "undecided")
-        self.assigned_candidates = reviewer_input.get("assigned_candidates", [])
 
 class ModelReviewer_django(models.Model): 
         name = models.CharField(max_length = 50)
