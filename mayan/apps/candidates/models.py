@@ -50,24 +50,27 @@ class ModelCandidateManager_django(models.Manager):
         # dictionary w/ keys for employer/organization, time, description
         experience = candidate_input.get("experience", dict())
 
-        try: 
+        try:
             undergrad_experience = candidate_input["undergrad_experience"]
-            undergrad_school = undergrad_experience.get("undergrad_school", "")
-            GPA = undergrad_experience.get("GPA", None)
-        except: 
-            pass
+        except:
+            undergrad_experience = None
+
+
+            # undergrad_school = undergrad_experience.get("undergrad_school", "")
+            # GPA = undergrad_experience.get("GPA", None)
+
         
         # dictionary mapping reviewer name to notes
         reviewer_notes = dict()
         
         candidate = self.create(name=name, email=email, phone_number=phone_number, 
                                 DOB=DOB, 
-                                # assigned_reviewers=assigned_reviewers, 
-                                # associated_docs=associated_docs, skills=skills, 
+                                associated_cabinet=associated_cabinet, skills=skills, 
                                 experience=experience, 
-                                # undergrad_experience=undergrad_experience,
-                                # undergrad_school=undergrad_school, GPA=GPA, 
+                                undergrad_experience=undergrad_experience,
                                 reviewer_notes=reviewer_notes)
+        candidate.set("assigned_reviewers",assigned_reviewers)
+
         return candidate
         
 class ModelCandidate_django(models.Model): 
@@ -92,7 +95,7 @@ class ModelCandidate_django(models.Model):
     )
     
     assigned_reviewers = models.  ManyToManyField('reviewers.ModelReviewer_django')
-    associated_cabinet= models.OneToOneField('cabinets.Cabinet')
+    associated_cabinet= models.OneToOneField('cabinets.Cabinet',on_delete=models.CASCADE)
 
     skills = models.CharField(max_length = 150)
     experience = models.CharField(max_length = 1000)
