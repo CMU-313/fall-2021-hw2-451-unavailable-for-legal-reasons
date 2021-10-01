@@ -3,5 +3,5 @@ from mayan.apps.navigation.classes import Link
 from .icons import icon_menu_reviewers
 
 link_reviewers = Link(
-    icon=icon_menu_reviewers,text=_('Reviewers'), view='reviewers:reviewers'
+    icon=icon_menu_reviewers,text=_('Candidates'), view='reviewers:reviewers'
 )
