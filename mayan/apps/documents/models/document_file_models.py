@@ -22,8 +22,6 @@ from mayan.apps.file_caching.models import CachePartitionFile
 from mayan.apps.mimetype.api import get_mimetype
 from mayan.apps.storage.classes import DefinedStorageLazy
 
-from mayan.apps.candidates.models import ModelCandidate_django
-
 from ..events import (
     event_document_file_created, event_document_file_deleted,
     event_document_file_downloaded, event_document_file_edited
@@ -115,12 +113,6 @@ class DocumentFile(
             'binary data. Only identical documents will have the same '
             'checksum.'
         ), max_length=64, null=True, verbose_name=_('Checksum')
-    )
-    candidate = models.ForeignKey(ModelCandidate_django,
-        blank=True, db_index=True, editable=False, help_text=(
-            'The candidate that the doccument concerns, if it concerns one.'
-            'Documents can only have one candidate assigned to them.'#currently
-        ), null=True, verbose_name=_('Candidate'), on_delete=models.SET_NULL
     )
 
     class Meta:

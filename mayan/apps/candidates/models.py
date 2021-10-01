@@ -44,7 +44,7 @@ class ModelCandidateManager_django(models.Manager):
         
         assigned_reviewers = candidate_input.get("assigned_reviewers", [])
         # dictionary mapping title of document to document
-        associated_docs = candidate_input.get("associated_docs", dict()) 
+        associated_cabinet = candidate_input.get("associated_cabinet", None) 
         skills =  candidate_input.get("skills", [])
         # dictionary mapping title of experience to 
         # dictionary w/ keys for employer/organization, time, description
@@ -83,9 +83,17 @@ class ModelCandidate_django(models.Model):
     email = models.CharField(max_length = 50)
     phone_number = models.CharField(max_length = 50)
     DOB = models.CharField(max_length = 50)
+
+    evaluation = (
+        ('A', 'Accepted'),
+        ('D', 'Denied'),
+        ('R', 'In Review'),
+        ('O', 'Other (see notes)'),
+    )
     
-    assigned_reviewers = models.ManyToManyField('reviewers.ModelReviewer_django')
-    associated_docs = models.ManyToManyField('documents.DocumentFile')
+    assigned_reviewers = models.  ManyToManyField('reviewers.ModelReviewer_django')
+    associated_cabinet= models.OneToOneField('cabinets.Cabinet')
+
     skills = models.CharField(max_length = 150)
     experience = models.CharField(max_length = 1000)
     
