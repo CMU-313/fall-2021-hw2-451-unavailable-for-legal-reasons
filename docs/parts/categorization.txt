@@ -14,6 +14,8 @@ Manual methods
 - :doc:`../chapters/document_types`
 - :doc:`../chapters/cabinets`
 - :doc:`../chapters/tags`
+- :doc:`../chapters/reviewers`
+- :doc:`../chapters/candidates`
 
 .. toctree::
   :hidden:
@@ -21,6 +23,9 @@ Manual methods
   ../chapters/document_types
   ../chapters/cabinets
   ../chapters/tags
+  ../chapters/reviewers
+  ../chapters/candidates
+
 
 
 Automatic methods

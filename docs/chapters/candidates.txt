@@ -1,0 +1,12 @@
+==========
+Candidates
+==========
+
+Candidates represent applicants to the organization.
+They're geared towards student applicants, including attributes like
+their gpa and, if applicable, undergraduate education. 
+Documents can also be associated with specific candidates, 
+so things like cv's and portfolios can be included as well. 
+
+They're managed by reviewers, who review their credentials for whether or 
+not they should be admitted.
