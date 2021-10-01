@@ -27,6 +27,14 @@
 [support]: https://img.shields.io/badge/Get_support-brightgreen
 [support-url]: https://www.mayan-edms.com/support/
 
+<h1 align="center">New Features/Disclaimers</h2>
+This is an experimental fork of [Mayan-EDMS](https://github.com/CMU-313/Mayan-EDMS) built atop version 4.0.7.
+Two new management systems have been prototyped: reviewers and candidates. <!-- TODO: add links to  -->
+They've been designed to help reviewers manage candidates/student-applicants for positions and includes data like their gpa and undraduate degree (if applicable), as well as documents like their cv and any portfolio they might have.
+You can find more doccumentation [here](https://add_a_link_here.pls).
+
+However, these features are very much still in an alpha stage. Only upgrade to this version for testing purposes.
+
 <div align="center">
   <a href="http://www.mayan-edms.com">
     <img width="200" heigth="200" src="https://gitlab.com/mayan-edms/mayan-edms/raw/master/docs/_static/mayan_logo.png">
