@@ -1,0 +1,7 @@
+=========
+Reviewers
+=========
+
+Reviewers represent anyone designated to evaluate a candidate or candidates. 
+You can attribute basic information to a reviewer, including their name and work status,
+but their main function is to be assigned and to manage candidates for review.
