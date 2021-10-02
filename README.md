@@ -27,6 +27,15 @@
 [support]: https://img.shields.io/badge/Get_support-brightgreen
 [support-url]: https://www.mayan-edms.com/support/
 
+**Important note:  
+There are conflicts on merging the "creating_a_reviewer_ui" branch to the "master" branch. Hence, the current version with the new features are on the "creating_a_reviewer_ui" branch. Issue #43 has been opened to address this. In the meantime, please clone from the "creating_a_reviewer_ui" branch when attempting to run MayanEDMS with the additional features.**
+
+<h1 align="center">New Features/Disclaimers</h2>
+This is an experimental fork of Mayan-EDMS built atop version 4.0.7.
+Two new management systems have been prototyped: reviewers and candidates.
+They've been designed to help reviewers manage candidates/student-applicants for positions and includes data like their gpa and undergraduate degree (if applicable), as well as documents like their cv and any portfolio they might have.
+You can find testing info at https://github.com/CMU-313/fall-2021-hw2-451-unavailable-for-legal-reasons/blob/creating_a_reviewer_ui/testing_instructions.md). However, these features are very much still in an alpha stage. Only upgrade to this version for testing purposes.
+
 <div align="center">
   <a href="http://www.mayan-edms.com">
     <img width="200" heigth="200" src="https://gitlab.com/mayan-edms/mayan-edms/raw/master/docs/_static/mayan_logo.png">
