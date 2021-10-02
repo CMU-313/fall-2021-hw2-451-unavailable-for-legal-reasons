@@ -22,7 +22,7 @@ def table(request):
         "DOB":"none",
         "undergrad_experience":"none"
     }
-    heh = ModelCandidate_django.objects.create_candidate(basic_information=basic_info)
+    # heh = ModelCandidate_django.objects.create_candidate(basic_information=basic_info)
     # heh.save()
 
     # Getting all the stuff from database
